@@ -44,6 +44,11 @@ some initial data! This process is called **seeding** the database.
 8. `process.env` allows a program to access **environment variables**, which are
    conventionally defined in a `.env` file. Rename the provided `example.env` to `.env`
    and replace the placeholder credentials with your actual PostgreSQL credentials.
+
+> [!WARNING]
+>
+> You must be using Node v21 or later in order to read the `.env` file!
+
 9. The `pg` client can now be used to send SQL queries from a JavaScript program, and the
    records will be returned as an array of JavaScript objects. Open `db/queries/movies.js`.
    What SQL query does the function `getMovies()` send to the database?
