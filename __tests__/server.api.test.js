@@ -5,7 +5,6 @@ import { describe, expect, it, test, vi } from "vitest";
 
 import app from "#app";
 import db from "#db/client";
-import { mock } from "node:test";
 
 /** Mock the database client to test just the API */
 vi.mock("#db/client", () => ({
