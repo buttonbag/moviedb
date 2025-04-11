@@ -7,13 +7,11 @@ Now that our database is initialized and seeded, we can connect it with our Expr
 A CRUD API needs to do more than just get and create movies - it also has to update and
 delete them!
 
-Write and export the following functions in `db/queries/movie.js`.
+Complete the following functions in `db/queries/movie.js`.
 
-1. `getMovie(id)` queries the database for the movie with the specified id and returns it.
-2. `deleteMovie(id)` deletes the movie with the specified id and does not return anything.
-3. `updateMovie(movie)` updates the record in the database according to the provided
-   movie object, which should contain an id, name, releaseDate, and runningTime.
-   It returns the updated movie.
+1. `getMovie()`
+2. `updateMovie()`
+3. `deleteMovie()`
 
 ## Use the queries in an Express router
 
