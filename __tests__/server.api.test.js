@@ -45,11 +45,6 @@ describe("POST /movies", () => {
 });
 
 describe("GET /movies/:id", () => {
-  it("sends 400 if id is not a positive integer", async () => {
-    const response = await request(app).get("/movies/1e10");
-    expect(response.status).toBe(400);
-  });
-
   it("sends 404 if movie does not exist", async () => {
     db.query.mockResolvedValue({ rows: [] });
     const response = await request(app).get("/movies/1");
@@ -65,11 +60,6 @@ describe("GET /movies/:id", () => {
 });
 
 describe("DELETE /movies/:id", () => {
-  it("sends 400 if id is not a positive integer", async () => {
-    const response = await request(app).delete("/movies/1e10");
-    expect(response.status).toBe(400);
-  });
-
   it("sends 404 if movie does not exist", async () => {
     db.query.mockResolvedValue({ rows: [] });
     const response = await request(app).delete("/movies/1");
@@ -93,12 +83,6 @@ describe("PUT /movies/:id", () => {
   it("sends 400 if request body does not have required fields", async () => {
     db.query.mockResolvedValue({ rows: [mockMovie] });
     const response = await request(app).put("/movies/1").send({});
-    expect(response.status).toBe(400);
-  });
-
-  it("sends 400 if id is not a positive integer", async () => {
-    db.query.mockResolvedValue({ rows: [mockMovie] });
-    const response = await request(app).put("/movies/1e10").send(mockMovie);
     expect(response.status).toBe(400);
   });
 

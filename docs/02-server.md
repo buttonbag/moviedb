@@ -27,17 +27,14 @@ In `api/movies.js`, define the middleware for the following endpoints.
    - Sends 400 with an error message if request body is missing a required field
    - Creates a movie according to the request body and sends it with status 201
 8. `GET /movies/:id`
-   - Sends 400 with an error message if the provided ID is not a positive integer
    - Sends 404 if the movie with the specified ID does not exist
    - Sends the movie with the specified ID if it does exist
 9. `DELETE /movies/:id`
-   - Sends 400 with an error message if the provided ID is not a positive integer
    - Sends 404 if the movie with the specified ID does not exist
    - Deletes the movie with the specified ID and sends 204
 10. `PUT /movies/:id`
     - Sends 400 with an error message if request body is not provided
     - Sends 400 with an error message if request body is missing a required field
-    - Sends 400 with an error message if the provided ID is not a positive integer
     - Sends 404 if the movie with the specified ID does not exist
     - Updates the movie with the specified ID according to the request body and sends it
 
