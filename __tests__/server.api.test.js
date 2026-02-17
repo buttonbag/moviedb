@@ -52,7 +52,7 @@ describe("GET /movies/:id", () => {
 
   it("sends 404 if movie does not exist", async () => {
     db.query.mockResolvedValue({ rows: [] });
-    const response = await request(app).get("/movies/0");
+    const response = await request(app).get("/movies/1");
     expect(response.status).toBe(404);
   });
 
@@ -72,7 +72,7 @@ describe("DELETE /movies/:id", () => {
 
   it("sends 404 if movie does not exist", async () => {
     db.query.mockResolvedValue({ rows: [] });
-    const response = await request(app).delete("/movies/0");
+    const response = await request(app).delete("/movies/1");
     expect(response.status).toBe(404);
   });
 
@@ -104,7 +104,7 @@ describe("PUT /movies/:id", () => {
 
   it("sends 404 if movie does not exist", async () => {
     db.query.mockResolvedValue({ rows: [] });
-    const response = await request(app).put("/movies/0").send(mockMovie);
+    const response = await request(app).put("/movies/1").send(mockMovie);
     expect(response.status).toBe(404);
   });
 
