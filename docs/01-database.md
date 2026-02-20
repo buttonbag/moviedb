@@ -17,10 +17,10 @@
    3. `release_date` is a date (without time) that cannot be null.
    4. `running_time` is an integer that cannot be null.
 
-3. Read the `db:schema` script in `package.json`. What file does it ask `psql` to run?
-4. How does `psql` know which database to run the file on?
+3. Read the `db:schema` script in `package.json`. What file does it ask `psql` to run? **schema.sql**
+4. How does `psql` know which database to run the file on? **-d moviedb**
 5. Run the script to sync your database with the schema that you just wrote.\
-   `npm run db:schema`.
+   `npm run db:schema`. 
 6. Connect to the database with `psql -d moviedb` and run `\d movies` to verify that the
    movies table was created with the correct columns.
 
@@ -40,7 +40,7 @@ some initial data! This process is called **seeding** the database.
    gap between JavaScript and PostgreSQL, we're going to use the [node-postgres](https://node-postgres.com/) library!
    This will allow us to write scripts in JavaScript to query the database. This
    connection is defined in `db/client.js`.\
-   How does `pg` (the node-postgres package) know which database to connect to?
+   How does `pg` (the node-postgres package) know which database to connect to? **DATABASE_URL is defined in .env file**
 8. `process.env` allows a program to access **environment variables**, which are
    conventionally defined in a `.env` file. Rename the provided `example.env` to `.env`
    and replace the placeholder credentials with your actual PostgreSQL credentials.
@@ -51,9 +51,9 @@ some initial data! This process is called **seeding** the database.
 
 9. The `pg` client can now be used to send SQL queries from a JavaScript program, and the
    records will be returned as an array of JavaScript objects. Open `db/queries/movies.js`.
-   What SQL query does the function `getMovies()` send to the database?
-10. What does `db.query` return?
-11. What does `getMovies` return?
+   What SQL query does the function `getMovies()` send to the database? **SELECT** 
+10. What does `db.query` return? **all data from table**
+11. What does `getMovies` return? **all rows called movies**
 12. Complete `createMovie()`, which inserts a new record into the movie table according
     to the provided details. It should return the created movie.
     You will need to use a [parameterized query](https://node-postgres.com/features/queries#parameterized-query).
